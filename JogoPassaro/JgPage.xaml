@@ -29,16 +29,22 @@
         <Image
             x:Name="CanoDeBaixo"
             Source="chao.png"
-            WidthRequest="235"
+            WidthRequest="400"
             VerticalOptions="End"
-            HorizontalOptions="End"/>
+            HorizontalOptions="End"
+            HeightRequest="450"/>
 
         <Image
             x:Name="CanoDeCima"
             Source="ceu.png"
-            WidthRequest="235"
+            WidthRequest="400"
             VerticalOptions="Start"
-            HorizontalOptions="End"/>
+            HorizontalOptions="End"
+            HeightRequest="450"/>
+
+        <Label x:Name="LabelScore"
+               VerticalOptions="Start"
+               HorizontalOptions="End" /> 
 
         <Frame x:Name="FrameGameOver"
                BackgroundColor="#99000000"
@@ -49,7 +55,7 @@
                </Frame.GestureRecognizers>
 
             <Image Source="gameover.png"
-                   HeightRequest="195"
+                   HeightRequest="140"
                    WidthRequest="160"
             />
         </Frame>

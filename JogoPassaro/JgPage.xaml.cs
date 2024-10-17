@@ -2,7 +2,8 @@ namespace JogoPassaro;
 
 public partial class JgPage : ContentPage
 {
-    const int gravidade=30;
+   const int gravidade=30;
+   const int aberturaMinima = 10;
    const int tempoEntreFrames=25;
    bool estaMorto=false;
    double larguraJanela=0;
@@ -12,6 +13,8 @@ public partial class JgPage : ContentPage
    int tempoPulando=0;
    bool estaPulando=false;
    const int forcaPulo=60;
+   int score=0; 
+
 
 
 		public JgPage()
@@ -69,6 +72,14 @@ public partial class JgPage : ContentPage
 	 {
 		CanoDeBaixo.TranslationX=0;
 		CanoDeCima.TranslationX=0;
+
+		var alturaMax = -100;
+			var alturaMin = -CanoDeBaixo.HeightRequest;
+			CanoDeCima.TranslationY = Random.Shared.Next((int)alturaMin, (int)alturaMax);
+			CanoDeBaixo.TranslationY = CanoDeCima.TranslationY + aberturaMinima + CanoDeBaixo.HeightRequest;
+			score ++; 
+			LabelScore.Text= "Canos: "+ score.ToString("D3");
+
 
      }
   
