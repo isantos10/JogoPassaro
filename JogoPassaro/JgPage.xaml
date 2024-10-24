@@ -4,12 +4,12 @@
              x:Class="JogoPassaro.JgPage">
 
 
-    
-      <Grid>
-            <Grid.GestureRecognizers>
+
+    <Grid>
+        <Grid.GestureRecognizers>
             <TapGestureRecognizer Tapped="OnGridClicked"/>
-            </Grid.GestureRecognizers>
-            
+        </Grid.GestureRecognizers>
+
         <Image
             x:Name="FundoImg"
             Source="fundo.png"
@@ -23,41 +23,68 @@
             Source="passaro.png"
             WidthRequest="60"
             HeightRequest="90"
+            Margin="20,20,20,20"
             VerticalOptions="Center"
             HorizontalOptions="Start"/>
 
         <Image
             x:Name="CanoDeBaixo"
             Source="chao.png"
-            WidthRequest="400"
+            WidthRequest="500"
+            HeightRequest="300"
             VerticalOptions="End"
             HorizontalOptions="End"
-            HeightRequest="450"/>
+            Margin="0,0,0,20"/>
 
         <Image
             x:Name="CanoDeCima"
             Source="ceu.png"
-            WidthRequest="400"
+            WidthRequest="500"
+            HeightRequest="300"
             VerticalOptions="Start"
             HorizontalOptions="End"
-            HeightRequest="450"/>
+            Margin="0, 0, 0, 0"/>
 
         <Label x:Name="LabelScore"
                VerticalOptions="Start"
-               HorizontalOptions="End" /> 
+               HorizontalOptions="End"/>
 
         <Frame x:Name="FrameGameOver"
                BackgroundColor="#99000000"
                HorizontalOptions="Fill"
                VerticalOptions="Fill">
-               <Frame.GestureRecognizers>
-               <TapGestureRecognizer Tapped="OnGameOverClicked"/>
-               </Frame.GestureRecognizers>
 
-            <Image Source="gameover.png"
-                   HeightRequest="140"
-                   WidthRequest="160"
-            />
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnGameOverClicked"/>
+            </Frame.GestureRecognizers>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Image Source="gameover.png"
+                       HeightRequest="140"
+                       WidthRequest="160"
+                       Grid.Row="2"/>
+                <Frame Grid.Row="1"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+
+                    <Label Text="Você passou por 0 canos"
+                           x:Name="LabelCanos"
+                           Grid.Column="1"
+                           Grid.Row="4"/>
+                </Frame>
+            </Grid>
         </Frame>
     </Grid>
 </ContentPage>
